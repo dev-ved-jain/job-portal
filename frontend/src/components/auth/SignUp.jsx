@@ -162,7 +162,7 @@ const Signup = () => {
               type="submit"
               className="text-white bg-[#18181b] hover:bg-[#808080] w-full my-5"
             >
-              Login
+              SignUp
             </Button>
           )}
           <span className="text-sm">
