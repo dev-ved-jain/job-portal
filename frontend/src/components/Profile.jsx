@@ -9,7 +9,6 @@ import AppliedJobTable from "./AppliedJobTable";
 import UpdateProfileDialog from "./UpdateProfileDialog";
 import { useSelector } from "react-redux";
 
-const skills = ["HTML", "CSS", "Javascrip", "C++"];
 const isResume = true;
 
 const Profile = () => {
@@ -67,10 +66,10 @@ const Profile = () => {
           {isResume ? (
             <a
               target="blank"
-              href="http://youtube.com"
+              href={user?.profile?.resume}
               className="text-blue-500 w-full hover:underline cursor-pointer"
             >
-              Vedang_SDE_Resume
+              {user?.profile?.resumeOriginalName}
             </a>
           ) : (
             <span>NA</span>
