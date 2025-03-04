@@ -17,6 +17,10 @@ export const register = async (request, response) => {
     }
     const user = await User.findOne({ email });
 
+    const file = request.file;
+    const fileUri = getDataUri(file);
+    const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+
     // if user with given email exists registration not allowd
     if (user) {
       return response.status(400).json({
@@ -34,6 +38,9 @@ export const register = async (request, response) => {
       phoneNumber,
       password: hashedPassword,
       role,
+      profile: {
+        profilePhoto: cloudResponse.secure_url,
+      },
     });
 
     // send success message

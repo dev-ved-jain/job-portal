@@ -93,7 +93,7 @@ export const getJobById = async (request, response) => {
     const jobId = request.params.id;
     const job = await Job.findById(jobId)
       .populate({
-        path: "company",
+        path: "applications",
       })
       .sort({ createdAt: -1 });
     if (!job) {
