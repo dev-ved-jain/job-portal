@@ -42,15 +42,28 @@ const Navbar = () => {
         </div>
         <div className="flex gap-10 items-center">
           <ul className="flex gap-5 items-end font-medium">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/jobs">Jobs</Link>
-            </li>
-            <li>
-              <Link to="/browse">Browse</Link>
-            </li>
+            {user && user.role === "recruiter" ? (
+              <>
+                <li>
+                  <Link to="/admin/companies">Companies</Link>
+                </li>
+                <li>
+                  <Link to="/admin/jobs">Jobs</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/jobs">Jobs</Link>
+                </li>
+                <li>
+                  <Link to="/browse">Browse</Link>
+                </li>
+              </>
+            )}
           </ul>
           {!user ? (
             <div className="flex items-center gap-2">
@@ -89,12 +102,15 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="flex flex-col text-gray-600 my-2">
-                  <div className="flex w-fit items-center gap-2 cursor-pointer">
-                    <User2 />
-                    <Button variant="link">
-                      <Link to="/profile">View Profile</Link>
-                    </Button>
-                  </div>
+                  {user && user.role === "student" && (
+                    <div className="flex w-fit items-center gap-2 cursor-pointer">
+                      <User2 />
+                      <Button variant="link">
+                        <Link to="/profile">View Profile</Link>
+                      </Button>
+                    </div>
+                  )}
+
                   <div className="flex w-fit items-center gap-2 cursor-pointer">
                     <LogOut />
                     <Button onClick={logoutHandler} variant="link">
