@@ -1,6 +1,7 @@
 import React from "react";
 import LatestJobCards from "./LatestJobCards";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const LatestJobs = () => {
   const { allJobs } = useSelector((store) => store.job);
@@ -15,7 +16,7 @@ const LatestJobs = () => {
         ) : (
           allJobs
             .slice(0, 6)
-            .map((job, index) => <LatestJobCards key={job._id} job={job} />)
+            .map((job) => <LatestJobCards key={job._id} job={job} />)
         )}
       </div>
     </div>

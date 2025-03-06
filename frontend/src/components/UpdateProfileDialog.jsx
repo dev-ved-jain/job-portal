@@ -89,12 +89,12 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
           <form onSubmit={submitHandler}>
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="name" className="text-right">
+                <Label htmlFor="fullname" className="text-right">
                   Name
                 </Label>
                 <Input
-                  id="name"
-                  name="name"
+                  id="fullname"
+                  name="fullname"
                   type="text"
                   value={input.fullname}
                   onChange={changeEventHandler}
@@ -115,12 +115,12 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="number" className="text-right">
+                <Label htmlFor="phoneNumber" className="text-right">
                   Number
                 </Label>
                 <Input
-                  id="number"
-                  name="number"
+                  id="phoneNumber"
+                  name="phoneNumber"
                   value={input.phoneNumber}
                   onChange={changeEventHandler}
                   className="col-span-3"
